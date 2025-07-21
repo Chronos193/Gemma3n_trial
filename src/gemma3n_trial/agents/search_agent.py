@@ -10,7 +10,7 @@ class SearchAgent:
     def invoke(self, dish_name: str) -> RecipeSearchResults:
         params = {
             "query": dish_name,
-            "number": 5,
+            "number": 10,
             "apiKey": self.api_key,
         }
 

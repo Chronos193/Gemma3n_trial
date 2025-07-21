@@ -11,9 +11,11 @@ class LLM_Agent:
 
         # Inject format instructions into prompt template
         raw_prompt = PromptTemplate.from_template(
-            "Extract the name of the dish from this user query:\n\n"
-            "\"{user_query}\"\n\n"
-            "{format_instructions}"
+            "Extract the name of the dish from the user query below.\n"
+            "Return ONLY valid JSON in the format described.\n"
+            "Do not include any extra explanation, markdown, or text.\n\n"
+            "{format_instructions}\n\n"
+            "Query: {user_query}"
         )
 
         # Fill in format_instructions using .partial
