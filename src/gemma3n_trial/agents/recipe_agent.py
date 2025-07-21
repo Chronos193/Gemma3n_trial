@@ -18,17 +18,17 @@ class RecipeAgent:
         url = self.endpoint.format(id=selected.id)
         params = {"apiKey": self.api_key}
 
-        print(f"Fetching recipe info for ID: {selected.id}")
-        print(f"URL: {url}")
+        #print(f"Fetching recipe info for ID: {selected.id}")
+        #print(f"URL: {url}")
 
         response = httpx.get(url, params=params)
-        print(f"Response Status Code: {response.status_code}")
+        #print(f"Response Status Code: {response.status_code}")
 
         response.raise_for_status()
         data = response.json()
 
-        print("Response JSON keys:", list(data.keys()))
-        print("Sample title:", data.get("title"))
+        #print("Response JSON keys:", list(data.keys()))
+        #print("Sample title:", data.get("title"))
 
         if "title" not in data or "id" not in data:
             print("⚠️ Incomplete data received. Skipping...")
@@ -52,5 +52,5 @@ class RecipeAgent:
             "detailed_recipe": detailed_recipe.model_dump()
         }
 
-        print("Returning state with keys:", list(new_state.keys()))
+        #print("Returning state with keys:", list(new_state.keys()))
         return new_state
